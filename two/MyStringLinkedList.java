@@ -20,14 +20,16 @@ public class MyStringLinkedList {
 
 	// Implement the code
 	public void addLast(String item) {
-		if (header == null)
+		if (header == null) {
 			header = new Node(null, item, null);
-		
-		
-		while (header.next != null) {
-			header = header.next;
+			return;
 		}
-		header.next = new Node(null, item, null);
+		
+		Node temp = header;
+		while (temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = new Node(header, item, null);
 	}
 
 	// implement the code
