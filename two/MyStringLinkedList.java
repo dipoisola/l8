@@ -25,11 +25,8 @@ public class MyStringLinkedList {
 			return;
 		}
 		
-		Node temp = header;
-		while (temp.next != null) {
-			temp = temp.next;
-		}
-		temp.next = new Node(header, item, null);
+		Node last = this.getLast();
+		last.next = new Node(last, item, null);
 	}
 
 	// implement the code
@@ -38,6 +35,9 @@ public class MyStringLinkedList {
 			n = new Node(null, value, null);
 		} else if (n.next == null) {
 			addLast(value);
+		} else {
+			Node newNode = new Node(n, value, n.next);
+			n.next = newNode;
 		}
 	}
 
@@ -46,11 +46,12 @@ public class MyStringLinkedList {
 		if (header == null)
 			return size;
 
-		do {
+		while(header.next != null) {
 			size++;
-		} while (header.next != null);
+			header = header.next;
+		}
 
-		return size;
+		return ++size;
 	}
 
 	// implement code
@@ -65,10 +66,11 @@ public class MyStringLinkedList {
 
 	// implement the code
 	public Node getLast() {
-		while (header.next != null) {
-			header = header.next;
+		Node temp = header;
+		while (temp.next != null) {
+			temp = temp.next;
 		}
-		return header;
+		return temp;
 	}
 
 	// implement the code
@@ -81,7 +83,7 @@ public class MyStringLinkedList {
 		while (header.next != null) {
 			header = header.next;
 		}
-		
+
 		header.previous.next = null;
 	}
 
@@ -176,13 +178,13 @@ public class MyStringLinkedList {
 	public void deleteList() {
 		Node tempOne = header;
 		Node tempTwo = header;
-		
+
 		while (tempOne != null) {
 			tempOne = tempOne.next;
 			tempTwo = null;
 			tempTwo = tempOne;
 		}
-		
+
 		header = null;
 	}
 
