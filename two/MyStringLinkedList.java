@@ -99,6 +99,7 @@ public class MyStringLinkedList {
 		if (n.next == null) {
 			System.out.println(n.value);
 		} else {
+			System.out.println(n.value);
 			print(n.next);
 		}
 	}
@@ -244,6 +245,7 @@ public class MyStringLinkedList {
 		mySL.printReverse();
 		mySL.addLast("Peach Sauce");
 		System.out.println(mySL);
+		mySL.print();
 		mySL.printReverse();
 		mySL.deleteNode(mySL.findItem("Apple Pie"));
 		System.out.println(mySL);

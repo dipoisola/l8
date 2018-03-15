@@ -11,7 +11,7 @@ public class SalesAmountComparator implements Comparator<Marketing> {
 				return m2.getProductname().compareTo(m1.getProductname());
 			}
 			
-			return m2.getEmployeename().compareTo(m1.getProductname());
+			return m2.getEmployeename().compareTo(m1.getEmployeename());
 		}
 		
 		return (int) (m1.getSalesamount() - m2.getSalesamount());
