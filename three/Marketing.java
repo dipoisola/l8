@@ -30,4 +30,13 @@ public class Marketing {
 	public void setSalesamount(double salesamount) {
 		this.salesamount = salesamount;
 	}
+
+	@Override
+	public String toString() {
+		return employeename + " " 
+				+ productname + " " 
+				+ salesamount;
+	}
+	
+	
 }
